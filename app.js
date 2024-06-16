@@ -9,7 +9,7 @@ function search(input) {
         })
         .then(function(data) {
             document.getElementById('status').innerText = data.current.condition.text;
-            document.getElementById('address').innerText = `${data.location.name},${data.location.region},${data.location.country}`;
+            document.getElementById('address').innerText = `${data.location.name}-${data.location.country}`;
             document.getElementById('localTime').innerText = data.location.localtime;
             document.getElementById('lastUpdateTime').innerText = data.current.last_updated;
             document.getElementById('temp').innerText = data.current.temp_c + '°C';
