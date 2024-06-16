@@ -23,15 +23,31 @@ function search(input) {
 }
 
 function getInput(){
+    
     var input = document.getElementById('input').value;
-if(input.trim==''){
+   if(input.trim()==''){
     alert("Enter City")
 }else{
+    search(input);
     setInterval(function() {
         console.log("Updating");
         search(input);
-    }, 2000);
+    }, 500000);
     
     document.getElementById('input').value='';
 }
 }
+function setUserCity() {
+    if (localStorage.getItem("city")) {
+search(localStorage.getItem("city"))
+    } else {
+        var userCity = prompt("First time user, Enter your city for once");
+        if (userCity !== null) {
+            localStorage.setItem("city", userCity);
+            search(userCity);
+        }
+    }
+}
+
+setUserCity();
+
