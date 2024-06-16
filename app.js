@@ -1,5 +1,4 @@
-function search(input) {
-    
+function search(input) {    
     fetch(`https://api.weatherapi.com/v1/current.json?key=6f5ecbcb34d2449d967104445241606&q=${input}&aqi=no`)
         .then(function(response) {
             if (!response.ok) {
@@ -37,17 +36,6 @@ function getInput(){
     document.getElementById('input').value='';
 }
 }
-function setUserCity() {
-    if (localStorage.getItem("city")) {
-search(localStorage.getItem("city"))
-    } else {
-        var userCity = prompt("First time user, Enter your city for once");
-        if (userCity !== null) {
-            localStorage.setItem("city", userCity);
-            search(userCity);
-        }
-    }
-}
 
-setUserCity();
 
+search(localStorage.getItem("city"));
